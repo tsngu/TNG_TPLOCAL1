@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "ZbDZM6p7db3XsJsCfD5skbZ+kzBbRXbsiLMd8g9ewFU=",
+  "Source": "TPLOCAL1",
+  "BasePath": "_content/TPLOCAL1",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TPLOCAL1/wwwroot",
+      "Source": "TPLOCAL1",
+      "ContentRoot": "/home/tifngu/Documents/formation_dotnet/projet2/TNG_TPLOCAL1/wwwroot/",
+      "BasePath": "_content/TPLOCAL1",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/tifngu/Documents/formation_dotnet/projet2/TNG_TPLOCAL1/wwwroot/resources/GroupeHN.png",
+      "SourceId": "TPLOCAL1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/tifngu/Documents/formation_dotnet/projet2/TNG_TPLOCAL1/wwwroot/",
+      "BasePath": "_content/TPLOCAL1",
+      "RelativePath": "resources/GroupeHN.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/GroupeHN.png"
+    },
+    {
+      "Identity": "/home/tifngu/Documents/formation_dotnet/projet2/TNG_TPLOCAL1/wwwroot/resources/Index.css",
+      "SourceId": "TPLOCAL1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/tifngu/Documents/formation_dotnet/projet2/TNG_TPLOCAL1/wwwroot/",
+      "BasePath": "_content/TPLOCAL1",
+      "RelativePath": "resources/Index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/resources/Index.css"
+    }
+  ]
+}
