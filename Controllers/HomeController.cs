@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using TPLOCAL1.Models;
 
 //Subject is find at the root of the project and the logo in the wwwroot/ressources folders of the solution
@@ -15,7 +14,7 @@ namespace TPLOCAL1.Controllers
         {
             if (string.IsNullOrWhiteSpace(id))
                 //retourn to the Index view (see routing in Program.cs)
-                return View();
+                return View("Index", new Information());
             else
             {
                 //Call different pages, according to the id pass as parameter
@@ -23,13 +22,15 @@ namespace TPLOCAL1.Controllers
                 {
                     case "OpinionList":
                         //TODO : code reading of the xml files provide
-                        return View(id);
+                        OpinionList avis = new OpinionList();
+                        List<Opinion> opinions = avis.GetAvis("XlmFile/DataAvis.xml");
+                        return View(id, opinions);
                     case "Form":
                         //TODO : call the Form view with data model empty
                         return View(id);
                     default:
                         //retourn to the Index view (see routing in Program.cs)
-                        return View();
+                        return View("Index", new Information());
                 }
             }
         }
@@ -37,13 +38,19 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire(/*model*/)
+        public ActionResult ValidationFormulaire(Information model)
         {
-            //TODO : test if model's fields are set
-            //if not, display an error message and stay on the form page
-            //else, call ValidationForm with the datas set by the user
-            return null;
+            if (ModelState.IsValid)
+            {
+                // Tout est valide → page de confirmation
+                return View("FormValidation", model);
+            }
+            else
+            {
+                // Erreur de validation → retour au formulaire
+                return View("Form", model);
 
+            }
         }
     }
 }

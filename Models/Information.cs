@@ -20,7 +20,8 @@ namespace TPLOCAL1.Models
         public string? Adresse { get; set; }
 
         [Required(ErrorMessage = "Le code postal est requis.")]
-        public int CodePostal { get; set; }
+        [RegularExpression("\\d{5}", ErrorMessage = "Le code postal doit contenir 5 chiffres.")]
+        public string? CodePostal { get; set; }
 
         [Required(ErrorMessage = "La ville est requise.")]
         public string? Ville { get; set; }
@@ -31,17 +32,16 @@ namespace TPLOCAL1.Models
         // Informations formation
 
         [Required(ErrorMessage = "La date de début de formation est requise.")]
-        public string? DateDebutFormation { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? DateDebutFormation { get; set; }
 
         [Required(ErrorMessage = "Le type de formation est requis.")]
         public string? TypeFormation { get; set; }
 
         // Avis sur la formation
 
-        [Required]
         public string? avisFC { get; set; }
 
-        [Required]
         public string? avisFO { get; set; }
 
     }

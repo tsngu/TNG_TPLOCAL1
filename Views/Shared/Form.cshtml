@@ -2,176 +2,152 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="~/resources/Index.css"/>
-    </head>
-    <body>
-        <header>
-            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
-            <h1> Bienvenue chez TP HN.</h1>
-        </header>
+<head>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Bienvenue chez TP HN.</h1>
+    </header>
 
-        <nav>
-            <ul>
-                <li><a href="/Home/">Accueil</a></li>
-                <li><a href="/Home/Index/OpinionList">Liste d'avis</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="/Home/">Accueil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste d'avis</a></li>
+        </ul>
+    </nav>
 
-        <section>
-            <h1> FORMULAIRE </h1>
-            <form asp-action="FormValidation">
-                <div class="formTable">
+    <section>
+        <h1>FORMULAIRE</h1>
+        <form asp-action="ValidationFormulaire" method="post">
 
-                // Formulaire pour les infos personnelles.
+            <!-- Informations personnelles -->
+            <div class="formTable">
+                <table id="InfoPerso">
+                    <tr>
+                        <caption>Informations personnelles</caption>
+                    </tr>
+                    <tr>
+                        <td>Nom</td>
+                        <td>
+                            <input asp-for="Nom" type="text" placeholder="Votre nom" />
+                            <span asp-validation-for="Nom" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Prénom</td>
+                        <td>
+                            <input asp-for="Prenom" type="text" placeholder="Votre prénom" />
+                            <span asp-validation-for="Prenom" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td>
+                            <select asp-for="Genre" class="form-control">
+                                <option value="">Sélectionnez votre genre</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                            <span asp-validation-for="Genre" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Adresse</td>
+                        <td>
+                            <input asp-for="Adresse" type="text" placeholder="Votre adresse" />
+                            <span asp-validation-for="Adresse" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Code postal</td>
+                        <td>
+                            <input asp-for="CodePostal" type="number" placeholder="Votre code postal" />
+                            <span asp-validation-for="CodePostal" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ville</td>
+                        <td>
+                            <input asp-for="Ville" type="text" placeholder="Votre ville" />
+                            <span asp-validation-for="Ville" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input asp-for="Email" type="email" placeholder="Votre email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-                    <table id="InfoPerso">
-                        <tr>
-                            <th>Informations personnelles.</th>
-                        </tr>
+            <br />
 
-                        <tr>
-                            <td>
-                                Nom
-                            </td>
-                            <td>
-                                <input asp-for="Nom" type="text" placeholder="Votre nom" />
-                                <span asp-validation-for="Nom" class="text-danger"></span>
-                            </td>
-                        </tr>
+            <!-- Informations sur la formation -->
+            <div class="formTable">
+                <table id="InfoFormation">
+                    <tr>
+                        <caption>Informations sur la formation</caption>
+                    </tr>
+                    <tr>
+                        <td>Date de début de formation</td>
+                        <td>
+                            <input asp-for="DateDebutFormation" type="date" max="2021-01-01"/>
+                            <span asp-validation-for="DateDebutFormation" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Type de formation</td>
+                        <td>
+                            <select asp-for="TypeFormation" class="form-control">
+                                <option value="">Sélectionnez le type de formation</option>
+                                <option value="Formation COBOL">Formation COBOL</option>
+                                <option value="Formation Objet">Formation Objet</option>
+                                <option value="Formation à double compétence">Formation à double compétence</option>
+                            </select>
+                            <span asp-validation-for="TypeFormation" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-                        <tr>
-                            <td>
-                                Prénom
-                            </td>
-                            <td>
-                                <input asp-for="Prenom" type="text" placeholder="Votre prénom" />
-                                <span asp-validation-for="Prenom" class="text-danger"></span>
-                            </td>
-                        </tr>
+            <br />
 
-                        <tr>
-                            <td>
-                                Genre
-                            </td>
-                            <td>
-                                <select asp-for="Genre" class="form-control">
-                                    <option value="">Sélectionnez votre genre</option>
-                                    <option value="Homme">Homme</option>
-                                    <option value="Femme">Femme</option>
-                                    <option value="Autre">Autre</option>
-                            </td>
-                        </tr>
+            <!-- Avis sur la formation -->
+            <div class="formTable">
+                <table id="AvisFormation">
+                    <tr>
+                        <caption>Avis sur la formation</caption>
+                    </tr>
+                    <tr>
+                        <td>Formation COBOL</td>
+                        <td>
+                            <input asp-for="avisFC" type="text" placeholder="Votre avis sur la formation COBOL" />
+                            <span asp-validation-for="avisFC" class="text-danger"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Formation Objet</td>
+                        <td>
+                            <input asp-for="avisFO" type="text" placeholder="Votre avis sur la formation Objet" />
+                            <span asp-validation-for="avisFO" class="text-danger"></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-                        <tr>
-                            <td>
-                                Adresse
-                            </td>
-                            <td>
-                                <input asp-for="Adresse" type="text" placeholder="Votre adresse" />
-                                <span asp-validation-for="Adresse" class="text-danger"></span>
-                            </td>
-                        </tr>
+            <br />
 
-                        <tr>
-                            <td>
-                                Code postal
-                            </td>
-                            <td>
-                                <input asp-for="CodePostal" type="number" placeholder="Votre code postal"/>
-                                <span asp-validation-for="CodePostal" class="text-danger"></span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Ville
-                            </td>
-                            <td>
-                                <input asp-for="Ville" type="text" placeholder="Votre ville" />
-                                <span asp-validation-for="Ville" class="text-danger"></span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Email
-                            </td>
-                            <td>
-                                <input asp-for="Email" type="email" placeholder="Votre email" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <br/>
-                
-                // Formulaire pour le suivi des formations.
-                
-                <div class="formTable">
-                    <table id="InfoFormation">
-                        <tr>
-                            <th>Informations sur la formation</th>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Date de début de formation
-                            </td>
-                            <td>
-                                <input asp-for="DateDebutFormation" type="date" />
-                                <span asp-validation-for="DateDebutFormation" class="text-danger"></span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Type de formation
-                            </td>
-                            <td>
-                                <input list="typeFormation" asp-for="TypeFormation" placeholder="Sélectionnez le type de formation" />
-                                <datalist id="typeFormation">
-                                    <option value="">Sélectionnez une formation</option>
-                                    <option value="Formation COBOL"/>
-                                    <option value="Formation Objet"/>
-                                    <option value="Formation à double compétence"/>
-                                </datalist>
-                                <span asp-validation-for="TypeFormation" class="text-danger"></span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <br/>
-
-                <div class="formTable">
-                    <table id="AvisFormation">
-                        <tr>
-                            <th>Avis sur la formation</th>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Formation COBOL
-                            </td>
-                            <td>
-                                <input asp-for="avisFC" type="text" placeholder="Votre avis sur la formation COBOL" />
-                                <span asp-validation-for="avisFC" class="text-danger"></span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                Formation Objet
-                            </td>
-                            <td>
-                                <input asp-for="avisFO" type="text" placeholder="Votre avis sur la formation Objet" />
-                                <span asp-validation-for="avisFO" class="text-danger"></span>
-                            </td>
-                    </table>
-                </div>
-            </form>
-        </section>   
-    </body>
+            <!-- Bouton de soumission -->
+            <div class="form-group">
+                <input type="submit" value="Envoyer" class="btn btn-primary" />
+                <input type="reset" value="Effacer" class="btn btn-secondary" />
+            </div>
+        </form>
+    </section>
+</body>
 </html>

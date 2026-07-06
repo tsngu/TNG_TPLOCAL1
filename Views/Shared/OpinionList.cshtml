@@ -1,0 +1,61 @@
+@model List<TPLOCAL1.Models.Opinion>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HN - Liste d'avis</title>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+</head>
+
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Liste d'avis</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/Home/">Accueil</a></li>
+            <li><a href="/Home/Index/Form">Formulaire</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1>Liste des avis</h1>
+
+        <table id="ListeAvis">
+            <caption>Liste des avis</caption>
+
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Avis donné</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var avis in Model)
+                    {
+                        <tr>
+                            <td>@avis.LastName</td>
+                            <td>@avis.FirstName</td>
+                            <td style="color: black; background-color: @(avis.OpinionGiven == "O" ? "green" : "red")">
+                                @(avis.OpinionGiven == "Y" || avis.OpinionGiven == "O" ? "Oui" : "Non")
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3" style="text-align: center;">Aucun avis disponible</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

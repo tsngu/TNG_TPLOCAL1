@@ -1,0 +1,107 @@
+@model TPLOCAL1.Models.Information
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Validation du formulaire</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/Home/">Accueil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste d'avis</a></li>
+        </ul>
+    </nav>
+
+    <section>
+
+        <!-- Message de confirmation -->
+        <div class="alert alert-success">
+            <h2>Formulaire complété !</h2>
+            <p>Votre formulaire a été pris en compte !</p>
+        </div>
+
+        <!-- Informations personnelles -->
+        <div class="formTable">
+            <table id="InfoPerso">
+                <caption>Informations personnelles</caption>
+                <tr>
+                    <th>Nom</th>
+                    <td>@Model.Nom</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>@Model.Prenom</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>@Model.Genre</td>
+                </tr>
+                <tr>
+                    <th>Adresse</th>
+                    <td>@Model.Adresse</td>
+                </tr>
+                <tr>
+                    <th>Code Postal</th>
+                    <td>@Model.CodePostal</td>
+                </tr>
+                <tr>
+                    <th>Ville</th>
+                    <td>@Model.Ville</td>
+                </tr>
+                <tr>
+                    <th>Adresse mail</th>
+                    <td>@Model.Email</td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <!-- Informations sur la formation -->
+        <div class="formTable">
+            <table id="InfoFormation">
+                <caption>Informations formation suivie</caption>
+                <tr>
+                    <th>Début suivi formation</th>
+                    <td>@Model.DateDebutFormation</td>
+                </tr>
+                <tr>
+                    <th>Formation suivie</th>
+                    <td>@Model.TypeFormation</td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <!-- Tableau des avis -->
+        <div class="formTable">
+            <table id="AvisFormation">
+                <caption>Avis formation</caption>
+                <tr>
+                    <th>Formation COBOL</th>
+                    <td>@Model.avisFC</td>
+                </tr>
+                <tr>
+                    <th>Formation Objet</th>
+                    <td>@Model.avisFO</td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <!-- Boutons -->
+        <div class="form-group">
+            <a href="/Home/Index" class="btn btn-primary">Retour au formulaire</a>
+            <a href="/Home/Index/OpinionList" class="btn btn-secondary">Voir la liste d'avis</a>
+        </div>
+    </section>
+</body>
+</html>

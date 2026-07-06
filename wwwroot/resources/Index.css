@@ -39,3 +39,22 @@ section
 {
     margin-left: 170px;
 }
+
+
+table {
+    border: solid 1px;
+    //padding : 5px;
+}
+
+.tableName {
+    margin-left: 25px;
+}
+
+td, th {
+    border: solid 1px;
+    margin: 15px;
+}
+
+.text-danger {
+    color: red;
+}
