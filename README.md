@@ -4,4 +4,4 @@
 
 Le projet a été basé sur https://github.com/HNINSTITUT/TPLOCAL1-base .
 
-Exécutez le programme sur Visual Studio afin d'accéder au site internet.
+Exécutez le programme via le terminal de Visual Studio avec `dotnet run` afin d'accéder au site internet.
