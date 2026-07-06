@@ -1,16 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\bin",
-    "\\Controllers",
-    "\\obj",
-    "\\Views",
-    "\\Views\\Home",
-    "\\Views\\Shared",
-    "\\wwwroot",
-    "\\wwwroot\\resources",
-    "\\XlmFile"
+    ""
   ],
-  "SelectedNode": "\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
