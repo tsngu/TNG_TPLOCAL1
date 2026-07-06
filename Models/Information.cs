@@ -4,7 +4,9 @@ namespace TPLOCAL1.Models
 {
     public class Information
     {
-        // Informations personnelles avec REQUIRED aux champs obligatoires.
+        // Informations personnelles 
+
+        // Required pour les champs obligatoires, sinon message d'erreur.
         [Required(ErrorMessage = "Le nom est requis.")]
         public string? Nom { get; set; }
 
@@ -25,5 +27,22 @@ namespace TPLOCAL1.Models
 
         [Required(ErrorMessage = "L'email est requis.")]
         public string? Email { get; set; }
+
+        // Informations formation
+
+        [Required(ErrorMessage = "La date de début de formation est requise.")]
+        public string? DateDebutFormation { get; set; }
+
+        [Required(ErrorMessage = "Le type de formation est requis.")]
+        public string? TypeFormation { get; set; }
+
+        // Avis sur la formation
+
+        [Required]
+        public string? avisFC { get; set; }
+
+        [Required]
+        public string? avisFO { get; set; }
+
     }
 }
